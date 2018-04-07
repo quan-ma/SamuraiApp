@@ -22,5 +22,11 @@ namespace SamuraiApp.Data
         //    optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=master;Trusted_Connection=True;");
         //}
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<SamuraiBattle>()
+                .HasKey(s => new { s.SamuraiId, s.BattleId });
+        }
+
     }
 }
